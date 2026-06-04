@@ -203,6 +203,8 @@ After 300 epochs traning, the traning results
 
 ![YOLO26n Training Results](yolo26n_300epochs_training_results_screenshoot.png)
 
+![YOLO26n_Performances_and_Loss](results.png)
+
 The best-performing model (`best.pt`) will use for the distance estimation stage.
 
 
