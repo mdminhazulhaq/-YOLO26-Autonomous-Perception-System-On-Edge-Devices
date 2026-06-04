@@ -173,8 +173,37 @@ Waymo_YOLO_Distance/
 ```
 
 
-## 2nd Stage: Waymo_YOLO_Distance dataset traning on YOLO26n model
+## 2nd Stage: Waymo_YOLO_Distance dataset traning on YOLO26n model for object detection
 
+### Installed Prerequisites
+* Python 3.10
+* PyTorch 2.7
+* CUDA 11.8
+* Ultralytics
+
+### Hardware
+* Windows 11 with NVIDIA RTX A2000 Laptop GPU (4 GB VRAM)
+
+### Install Ultralytics
+
+```bash
+pip install ultralytics
+```
+
+### Training Command
+
+The YOLO26n model was trained for 300 epochs using the prepared Waymo_YOLO_Distance dataset:
+
+```bash
+yolo detect train model=ultralytics/cfg/models/11/yolo26n.yaml data=C:\Users\UM-User\Downloads\Waymo_YOLO_Distance\dataset.yaml epochs=300 imgsz=640 batch=4 device=0 workers=0 optimizer=AdamW lr0=0.001 weight_decay=0.0005 patience=30 cache=False plots=True name=yolo26n-300epochs
+```
+
+### Training Results
+After 300 epochs traning, the traning results
+
+![YOLO26n Training Results](yolo26n_300epochs_training_results.png)
+
+The best-performing model (`best.pt`) will use for the distance estimation stage.
 
 
 
