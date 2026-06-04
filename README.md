@@ -2,8 +2,8 @@
 Autonomous driving perception framework for object detection and monocular distance estimation using YOLO26 and geometry-aware distance regression.
 
 ## Stage 1: Dataset Preparation
-
-The dataset was prepared using the Waymo Open Dataset. Four parquet files were utilized:
+Dataset is publicly available "https://console.cloud.google.com/storage/browser/waymo_open_dataset_v_2_0_1;tab=objects?prefix=&forceOnObjectsSortingFiltering=false"
+Four parquet files were used initially, those files are:
 
 * training_camera_image_1_10023947602400723454_1120_000_1140_000.parquet
 * training_camera_box_1_10023947602400723454_1120_000_1140_000.parquet
