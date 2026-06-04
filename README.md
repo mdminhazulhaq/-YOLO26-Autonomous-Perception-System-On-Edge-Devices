@@ -201,7 +201,7 @@ yolo detect train model=ultralytics/cfg/models/11/yolo26n.yaml data=C:\Users\UM-
 ### Training Results
 After 300 epochs traning, the traning results
 
-![YOLO26n Training Results](yolo26n_300epochs_training_results.png)
+![YOLO26n Training Results](yolo26n_300epochs_training_results_screenshoot.png)
 
 The best-performing model (`best.pt`) will use for the distance estimation stage.
 
