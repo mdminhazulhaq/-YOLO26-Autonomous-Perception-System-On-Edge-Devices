@@ -148,7 +148,7 @@ Purpose:
 * Create training and validation sets
 * Generate dataset.yaml
 
-### Final Dataset Statistics
+### Final Dataset Statistics 
 
 ```text
 Training Images     : 794
