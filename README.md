@@ -2,7 +2,16 @@
 
 Autonomous driving perception framework for object detection and monocular distance estimation using YOLO26 and a geometry-aware distance regression model.
 
-## Stage 1: Dataset Preparation
+## Summary of the study
+### 1st Stage: Dataset Preparation
+### 2nd Stage: YOLO26 model traning and validation on the prepared dataset
+### 3rd Stage: Regression model developed, tranined & validated, optimzed untile get satisfactory results
+### 4th Stage: Run integrated (YOLO26 + Regression) model for object detection and distance calculation
+### 5th Stage: Optimize YOLO26 model for better trade off between accuracy and inference speed
+### Final Stage: Deploy and run the model on Jetson Thor platforms
+
+
+## 1st Stage: Dataset Preparation
 
 The dataset was prepared using the Waymo Open Dataset v2.0.1.
 
