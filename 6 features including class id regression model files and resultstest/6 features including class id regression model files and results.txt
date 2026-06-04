@@ -1,0 +1,46 @@
+distance_dataset_5cols     is actually for 6 columns information, 
+to avoid name unmaching with the previous 5 columns information, we didn't change the name.
+
+
+
+Image Evaluation Comparison
+Metric	4 Features	5 Features
+MAE	6.256 m	6.776 m
+RMSE	7.915 m	8.151 m
+
+Difference
+MAE  : +0.520 m
+RMSE : +0.236 m
+
+Conclusion
+4 Features > 5 Features
+
+For this image (frame_50.jpg), adding:
+
+class_id
+
+made the distance estimation slightly worse.
+
+
+Ablation Summary So Far
+Model	Features	Image MAE
+Model-1	x_center, y_center, width, height	6.256 m
+Model-2	class_id, x_center, y_center, width, height	6.776 m
+
+
+Observation
+class_id does not provide useful distance information.
+
+Distance is mainly determined by:
+object size
+object scale
+object position
+
+rather than whether the object is:
+Vehicle
+Pedestrian
+Cyclist
+
+So for your ablation study:
+4 Features  → Baseline
+5 Features  → No improvement
