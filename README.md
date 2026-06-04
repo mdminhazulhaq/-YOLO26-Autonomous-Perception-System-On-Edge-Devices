@@ -64,6 +64,9 @@ labels/train/
 distance_labels/train/
 ```
 
+##### After the images in .jpg format extracted inside the train folder and labels txt files in the lebels folder, we splited into 80:20 ratio for traning on YOLO26 model.
+
+
 YOLO label format:
 
 ```text
