@@ -78,17 +78,41 @@ class_id x_center y_center width height distance
 
 ### Distance Calculation
 
-The LiDAR box file provides 3D object center coordinates:
+The LiDAR box parquet file contains the 3D center coordinates of each detected object:
 
-* x = forward distance
-* y = lateral distance
-* z = height
+key.laser_object_id = 8f3c...
 
-Distance is calculated as:
+[LiDARBoxComponent].box.center.x = 32.4
+[LiDARBoxComponent].box.center.y = -4.1
+[LiDARBoxComponent].box.center.z = 1.8
 
-```text
+where:
+
+x = forward distance (m)
+y = left/right offset (m)
+z = height (m)
+
+The Euclidean distance from the ego vehicle to the object is calculated as:
+
 Distance = √(x² + y² + z²)
-```
+
+Example:
+
+x = 32.4
+y = -4.1
+z = 1.8
+Distance = √(32.4² + (-4.1)² + 1.8²)
+         = √(1049.76 + 16.81 + 3.24)
+         = √1069.81
+         = 32.71 m
+
+The computed distance is then matched with the corresponding projected LiDAR bounding box and stored in the distance label file:
+
+class_id x_center y_center width height distance
+
+Example:
+
+0 0.523 0.614 0.125 0.181 32.71
 
 ### Step 3: Label Verification
 
