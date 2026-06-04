@@ -29,6 +29,8 @@ The following parquet files were used:
 
 ### Step 1: Dataset Exploration
 
+#### All python files for dataset preparation and validation are located inside the dataset_preparation_python_files folder in the repository
+
 Script:
 
 ```text
