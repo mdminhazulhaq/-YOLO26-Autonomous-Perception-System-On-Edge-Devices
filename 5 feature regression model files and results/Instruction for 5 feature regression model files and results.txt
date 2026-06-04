@@ -1,0 +1,132 @@
+# Experiment 1: 4-Feature Distance Regression
+
+### Environment
+
+```bash
+conda activate yolov8
+cd C:\Users\UM-User\Downloads\simple_distance_regression
+```
+
+### Dataset
+
+**File:** `distance_dataset_5cols.csv`
+
+| Input Features | Target   |
+| -------------- | -------- |
+| x_center       | distance |
+| y_center       |          |
+| width          |          |
+| height         |          |
+
+**Samples:** 13,327
+**Split:** 90% Train (11,994) / 10% Validation (1,333)
+
+### Model
+
+Model Architecture
+class DistanceRegressionModel(nn.Module):
+
+    def __init__(self):
+        super().__init__()
+
+        self.network = nn.Sequential(
+
+            nn.Linear(4, 16),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+
+            nn.Linear(16, 32),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+
+            nn.Linear(32, 16),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+
+            nn.Linear(16, 1)
+
+        )
+
+    def forward(self, x):
+        return self.network(x)
+
+
+
+
+| Parameter     | Value                |
+| ------------- | -------------------- |
+| Architecture  | 4 → 16 → 32 → 16 → 1 |
+| Activation    | ReLU                 |
+| Dropout       | 0.2                  |
+| Loss          | MSELoss              |
+| Optimizer     | Adam                 |
+| Learning Rate | 0.001                |
+| Epochs        | 100                  |
+| Parameters    | 1,169                |
+
+### Training
+
+```bash
+python train_distance_model.py
+```
+
+### Training Results
+
+| Metric          | Value    |
+| --------------- | -------- |
+| Validation Loss | 0.100866 |
+| MAE             | 4.763 m  |
+| RMSE            | 6.511 m  |
+
+### YOLO + Distance Evaluation
+
+Pipeline:
+
+```text
+Image
+↓
+YOLO26n
+↓
+(x_center, y_center, width, height)
+↓
+Distance Regressor
+↓
+Distance Prediction
+```
+
+Evaluation files:
+
+```text
+frame_50.jpg
+frame_50.txt
+```
+
+Run:
+
+```bash
+python compare_simple_prediction.py
+```
+
+Visualization:
+
+```text
+Ve:0.91 GT:42.3m PD:40.8m Er:1.5m
+```
+
+where:
+
+* Ve = Vehicle
+* Pr = Pedestrian
+* Cy = Cyclist
+* Mo = Motorcycle
+
+### Final Evaluation Results
+
+| Metric | Value   |
+| ------ | ------- |
+| MAE    | 6.256 m |
+| RMSE   | 7.915 m |
+
+### Conclusion
+
+The 4-feature model provides a baseline distance estimation framework using only bounding box geometry. This experiment will be used as the reference for future 8-feature and 13-feature ablation studies.
