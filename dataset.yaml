@@ -1,0 +1,12 @@
+
+path: C:\Users\UM-User\Downloads\Waymo_YOLO_Distance
+
+train: images/train
+val: images/val
+
+nc: 3
+
+names:
+  0: Vehicle
+  1: Pedestrian
+  2: Cyclist
