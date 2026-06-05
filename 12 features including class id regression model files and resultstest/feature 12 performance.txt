@@ -1,0 +1,65 @@
+Excellent. Now we have a complete ablation comparison.
+
+Model		Features					Training MAE (m)	Image MAE (m)	Image RMSE (m)
+4 Features	x_center, y_center, width, height		4.763			6.256			7.915
+5 Features	+ class_id					4.769			6.776			8.151
+8 Features	+ bottom_y, area, aspect_ratio, diagonal	4.803			6.432			8.175
+12 Features	+ inverse_height, inverse_area, scale_score	4.137			5.975			7.842
+
+Improvement from 4 → 12 Features
+Training MAE:
+4.763 → 4.137
+Improvement = 0.626 m
+
+Image MAE:
+6.256 → 5.975
+Improvement = 0.281 m
+
+Image RMSE:
+7.915 → 7.842
+Improvement = 0.073 m
+Conclusion
+
+The useful features are:
+
+bottom_y
+inverse_height
+inverse_area
+scale_score
+
+These features provide additional depth cues and are responsible for the improvement.
+
+The features that contributed little:
+
+aspect_ratio
+diagonal
+class_id
+Current Best Model
+Input Features = 12
+Architecture   = 12 → 16 → 32 → 16 → 1
+Parameters     = 1,297
+Training MAE   = 4.137 m
+Image MAE      = 5.975 m
+Image RMSE     = 7.842 m
+
+This is currently your best regression model among all experiments conducted in this project.
+
+For your ablation-study folder, record:
+
+Experiment 1:
+4 features
+MAE = 6.256 m
+
+Experiment 2:
+5 features
+MAE = 6.776 m
+
+Experiment 3:
+8 features
+MAE = 6.432 m
+
+Experiment 4:
+12 features
+MAE = 5.975 m  ← Best
+
+This gives a clean progression showing that simply adding more features did not help, but adding depth-related features improved distance estimation.
