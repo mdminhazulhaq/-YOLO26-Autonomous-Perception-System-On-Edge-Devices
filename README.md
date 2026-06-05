@@ -13,10 +13,8 @@ Autonomous driving perception framework for object detection and monocular dista
 
 ## 1st Stage: Dataset Preparation
 Waymo Open Dataset Github public repo: 
-
-```
 https://github.com/waymo-research/waymo-open-dataset/tree/master
-```
+
 
 
 The dataset was prepared using the Waymo Open Dataset v2.0.1.
