@@ -1,0 +1,73 @@
+Now we have the complete end-to-end comparison.
+
+Model		Training MAE	Image MAE	Image RMSE
+4 Features	4.763		6.256		7.915
+5 Features	4.769		6.776		8.151
+8 Features	4.803		6.432		8.175
+12 Features	4.137		5.975		7.842
+13 Features	3.905		6.126		7.619
+
+What happened?
+Adding confidence improved the regression training metrics:
+
+12 Features:
+MAE = 4.137 m
+
+13 Features:
+MAE = 3.905 m
+
+But on the actual image test:
+
+12 Features:
+Image MAE = 5.975 m
+
+13 Features:
+Image MAE = 6.126 m
+
+The image MAE became slightly worse.
+Interpretation
+The confidence feature helped fit the training data better:
+
+4.137 → 3.905 m
+
+but it did not generalize better on the test image.
+This is common because confidence is detector-dependent and can introduce noise into the distance model.
+
+Current Ranking
+By image MAE (most important for deployment):
+1. 12 Features → 5.975 m
+2. 13 Features → 6.126 m
+3. 4 Features  → 6.256 m
+4. 8 Features  → 6.432 m
+5. 5 Features  → 6.776 m
+
+By image RMSE:
+1. 13 Features → 7.619 m
+2. 12 Features → 7.842 m
+3. 4 Features  → 7.915 m
+4. 5 Features  → 8.151 m
+5. 8 Features  → 8.175 m
+
+Recommendation for Your Ablation Table
+Experiment-1:
+4 Features
+MAE = 6.256 m
+
+Experiment-2:
+5 Features
+MAE = 6.776 m
+
+Experiment-3:
+8 Features
+MAE = 6.432 m
+
+Experiment-4:
+12 Features
+MAE = 5.975 m   ← Best MAE
+
+Experiment-5:
+13 Features
+MAE = 6.126 m
+RMSE = 7.619 m ← Best RMSE
+
+So far, the 12-feature model is the best choice if your primary metric is distance estimation accuracy (MAE), while the 13-feature model gives the lowest RMSE.
