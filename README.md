@@ -15,11 +15,11 @@ Autonomous driving perception framework for object detection and monocular dista
 #### Waymo Open Dataset Github public repo: 
 https://github.com/waymo-research/waymo-open-dataset/tree/master
 
-####Tuterial in Collab:
+#### Tuterial in Collab:
 https://colab.research.google.com/github/waymo-research/waymo-open-dataset/blob/master/tutorial/tutorial.ipynb
 
-#### The dataset was prepared using the Waymo Open Dataset v2.0.1.
-Dataset Link:
+#### The dataset was prepared using the 
+Waymo Open Dataset v2.0.1. Link:
 https://console.cloud.google.com/storage/browser/waymo_open_dataset_v_2_0_1
 
 ### Initial Parquet Files
