@@ -337,7 +337,11 @@ The trained YOLO26n detector and regression model were jointly evaluated on Waym
 
 The 12-feature model achieved the best image-level MAE, while the 13-feature model achieved the lowest image-level RMSE.
 
-![YOLO26n_Performances_and_Loss](distance_result_5_features.jpg)
+### 5-Feature Regression Model: Ground Truth vs Predicted Distance with YOLO26n Detection
+![YOLO26n Object Detection with bounding box score + Regression model distance prediciton with GT distance comparison](distance_result_5_features.jpg)
+
+![Numerical YOLO26n Object Detection with bounding box score + Regression model distance prediciton with GT distance comparison](anaconda result 5 features frame_50.jpg)
+
 
 
 
