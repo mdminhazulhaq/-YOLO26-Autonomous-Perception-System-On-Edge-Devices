@@ -175,6 +175,9 @@ Waymo_YOLO_Distance/
 └── dataset.yaml
 ```
 
+### The prepared dataset are stored in the drive in zip file format. Get the access of the dataset in the link:
+
+https://drive.google.com/file/d/1ZlCuwDcWz9nEeoWZBC8AY3y2EdtlNK-u/view?usp=sharing
 
 ## 2nd Stage: Waymo_YOLO_Distance dataset traning on YOLO26n model for object detection
 
@@ -343,7 +346,7 @@ The 12-feature model achieved the best image-level MAE, while the 13-feature mod
 
 
 
-### To compare the GT with Predicted Distance, we run the 'compare_simple_prediction' file, which we will get inside the folder '13 features including real YOLO Confidence...' folder
+### To compare the GT with Predicted Distance, we run the 'compare_simple_prediction' file, which we will get inside the folder '13 features including real YOLO Confidence regression model files and resultstest' folder
 Anaconda prompt run command
 
 (yolov8) C:\Users\UM-User\Downloads\simple_distance_regression>python compare_simple_prediction.py
