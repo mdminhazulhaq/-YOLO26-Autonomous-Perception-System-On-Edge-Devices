@@ -343,7 +343,9 @@ The trained YOLO26n detector and regression model were jointly evaluated on Waym
 
 The 12-feature model achieved the best image-level MAE, while the 13-feature model achieved the lowest image-level RMSE.
 
+### To train the distance regression model, the anaconda prompt command is:
 
+(yolov8) C:\Users\UM-User\Downloads\simple_distance_regression>python train_distance_model.py
 
 
 ### To compare the GT with Predicted Distance, we run the 'compare_simple_prediction' file, which we will get inside the folder '13 features including real YOLO Confidence regression model files and resultstest' folder
