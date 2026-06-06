@@ -343,6 +343,9 @@ The trained YOLO26n detector and regression model were jointly evaluated on Waym
 
 The 12-feature model achieved the best image-level MAE, while the 13-feature model achieved the lowest image-level RMSE.
 
+## Adding more features which are generated from the 'x_center', 'y_center', 'width', and 'height' actually not improving significant performance. So, we need to think different way for further optimization of the model and get better performance. At this moment, we can think the 5 features dataset is the main dataset.
+
+
 ### To train the distance regression model, the anaconda prompt command is:
 
 (yolov8) C:\Users\UM-User\Downloads\simple_distance_regression>python train_distance_model.py
