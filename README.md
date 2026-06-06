@@ -353,6 +353,8 @@ Anaconda prompt run command
 
 (yolov8) C:\Users\UM-User\Downloads\simple_distance_regression>python compare_simple_prediction.py
 
+the "python compare_simple_prediction.py" file code is here:
+
 
 ```python
 import cv2
