@@ -220,31 +220,31 @@ The best-performing model (`best.pt`) will use for the distance estimation stage
 A lightweight feed-forward neural network was developed using PyTorch to estimate object distance from object detection features.
 
 ```python
-class DistanceRegressionModel(nn.Module):
+class DistanceRegressionModel(nn.Module):   # Distance regression neural network
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self):                     # Initialize model architecture
+        super().__init__()                  # Initialize parent nn.Module class
 
-        self.network = nn.Sequential(
+        self.network = nn.Sequential(       # Define layers in sequential order
 
-            nn.Linear(13, 16),
-            nn.ReLU(),
-            nn.Dropout(0.2),
+            nn.Linear(13, 16),              # Input layer: 13 features → 16 neurons
+            nn.ReLU(),                      # Non-linear activation
+            nn.Dropout(0.2),                # Reduce overfitting
 
-            nn.Linear(16, 32),
-            nn.ReLU(),
-            nn.Dropout(0.2),
+            nn.Linear(16, 32),              # Hidden layer 1: 16 → 32 neurons
+            nn.ReLU(),                      # Non-linear activation
+            nn.Dropout(0.2),                # Reduce overfitting
 
-            nn.Linear(32, 16),
-            nn.ReLU(),
-            nn.Dropout(0.2),
+            nn.Linear(32, 16),              # Hidden layer 2: 32 → 16 neurons
+            nn.ReLU(),                      # Non-linear activation
+            nn.Dropout(0.2),                # Reduce overfitting
 
-            nn.Linear(16, 1)
+            nn.Linear(16, 1)                # Output layer: predicted distance (m)
 
         )
 
-    def forward(self, x):
-        return self.network(x)
+    def forward(self, x):                   # Forward propagation function
+        return self.network(x)              # Pass input through the network
 ```
 
 ### Model Configuration
